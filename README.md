@@ -1,10 +1,14 @@
 # kafka-spring-example
 
+## if you want to build the image locally
 created the kafka image, run into kafka dir:
 docker build -t kafka-ubuntu .
 
 create kafka container:
 docker run -d -p 9092:9092 --name kafka kafka-ubuntu
+
+## if you want to use this image from docker hub
+docker run -d -p 9092:9092 --name kafka andersonelit/kafka-ubuntu
 
 enter container:
 docker exec -it kafka bash
