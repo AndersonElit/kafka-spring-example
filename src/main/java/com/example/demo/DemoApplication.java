@@ -5,8 +5,10 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.kafka.annotation.EnableKafka;
 
 @SpringBootApplication
+@EnableKafka
 public class DemoApplication {
 
 	@Autowired
@@ -18,7 +20,9 @@ public class DemoApplication {
 
 	@PostConstruct
 	public void testKafka() {
-		producer.sendMessage("Hello from spring app!");
+		producer.sendMessage("message sent to consumer 1!");
+		producer.sendMessage("message sent to consumer 2!");
+		producer.sendMessage("message sent to consumer 3!");
 	}
 
 }
