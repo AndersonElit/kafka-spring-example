@@ -18,7 +18,7 @@ RUN wget https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSI
     rm kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
 # Update server.properties
-RUN sed -i 's/^#listeners=PLAINTEXT:\/\/:9092/listeners=PLAINTEXT:\/\/localhost:9092/' /usr/local/kafka/config/server.properties && \
+RUN sed -i 's/^#listeners=PLAINTEXT:\/\/:9092/listeners=PLAINTEXT:\/\/0.0.0.0:9092/' /usr/local/kafka/config/server.properties && \
     sed -i 's/^#advertised.listeners=PLAINTEXT:\/\/your.host.name:9092/advertised.listeners=PLAINTEXT:\/\/localhost:9092/' /usr/local/kafka/config/server.properties
 
 # Expose Kafka ports
